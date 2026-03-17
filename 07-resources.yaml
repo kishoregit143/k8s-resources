@@ -3,15 +3,16 @@ kind: Pod
 metadata:
   name: resources-demo
 spec:
-  container:
+  containers:
   - name: nginx
-    image: nginx  
+    image: nginx
     resources:
-     requests:
-      memory: "68Mi"
-      cpu: "100m" # 1/10th of cpu
-      # provide equal or more than requests
+      # soft limit
+      requests:
+        memory: "68Mi"
+        cpu: "100m" # 1/10th of cpu
+       # provide equal or more than requests
       # hard limit
       limits:
-      memory: "100Mi"
-      cpu: "120m"  
+        memory: "100Mi"
+        cpu: "120m"
