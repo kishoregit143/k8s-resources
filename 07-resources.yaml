@@ -6,8 +6,8 @@ spec:
   container:
   - name: nginx
     image: nginx  
-  resources:
-   requests:
+    resources:
+     requests:
       memory: "68Mi"
       cpu: "100m" # 1/10th of cpu
       # provide equal or more than requests
