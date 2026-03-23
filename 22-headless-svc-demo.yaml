@@ -43,7 +43,8 @@ metadata:
   name: nginx
 spec:
   # if services cluster ip is none then we can call it as headless services.
-  clustrIP: None
+  spec:
+  clusterIP: None
   selector:
     purpose: nginx-headless
     project: roboshop
