@@ -47,7 +47,7 @@ spec:
   spec:
   clusterIP: None
   selector:
-    purpose: nginx-headless
+    purpose: headless-svc-demo
     project: roboshop
   ports:
     - protocol: TCP
