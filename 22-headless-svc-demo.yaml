@@ -24,17 +24,30 @@ spec:
       containers:
       - name: nginx
         image: nginx:latest
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: nginx
+# spec:
+#   selector:
+#     purpose: headless-svc-demo
+#     project: roboshop
+#   ports:
+#     - protocol: TCP
+#       port: 80 # service port
+#       targetPort: 80 # container port     
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: nginx
 spec:
+  # if services cluster ip is none then we can call it as headless services.
+  clustrIP: None
   selector:
-    purpose: headless-svc-demo
+    purpose: nginx-headless
     project: roboshop
   ports:
     - protocol: TCP
       port: 80 # service port
-      targetPort: 80 # container port     
-      
+      targetPort: 80 # container port        
