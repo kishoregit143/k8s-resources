@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      name: fluentd-elasticsearch
+      name: fluentd-elasticsearch  # it is one of softwere
   template:
     metadata:
       labels:
