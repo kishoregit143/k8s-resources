@@ -12,36 +12,36 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   csi:
     driver: efs.csi.aws.com
-    volumeHandle: fs-011b6dc768df25064
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: efs-static
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: ""
-  resources:
-    requests:
-      storage: 5Gi
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: nginx
-  labels:
-    purpose: efs-static
-spec:
-  containers:
-  - name: nginx
-    image: nginx
-    volumeMounts:
-    - name: nginx-html
-      mountPath: /usr/share/nginx/html
-  nodeSelector:
-    topology.kubernetes.io/zone: us-east-1d
-  volumes:
-  - name: nginx-html
-    persistentVolumeClaim:
-      claimName: efs-static    
+    volumeHandle: fs-0bacb7d2e2b1f863b
+# ---
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: efs-static
+# spec:
+#   accessModes:
+#     - ReadWriteOnce
+#   storageClassName: ""
+#   resources:
+#     requests:
+#       storage: 5Gi
+# ---
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: nginx
+#   labels:
+#     purpose: efs-static
+# spec:
+#   containers:
+#   - name: nginx
+#     image: nginx
+#     volumeMounts:
+#     - name: nginx-html
+#       mountPath: /usr/share/nginx/html
+#   nodeSelector:
+#     topology.kubernetes.io/zone: us-east-1d
+#   volumes:
+#   - name: nginx-html
+#     persistentVolumeClaim:
+#       claimName: efs-static    
